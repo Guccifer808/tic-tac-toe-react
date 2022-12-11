@@ -7,7 +7,9 @@ const Board = () => {
   const initialSquares = [null, null, null, null, null, null, null, null, null];
   const [squares, setSquares] = useState(initialSquares);
   const handleClickEvent = (i) => {
-    alert(`${i} clicked`);
+    const newSquares = [...squares];
+    newSquares[i] = "x";
+    setSquares(newSquares);
   };
   const renderSquare = (i) => {
     return (
