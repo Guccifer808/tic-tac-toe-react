@@ -30,3 +30,19 @@ body {
   outline: none;
   background-color:#222;
 }
+.status {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  flex-flow: row;
+  margin: 20px;
+  font-size: 24px;
+}
+.flex-item {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}

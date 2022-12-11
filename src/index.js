@@ -1,21 +1,28 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+// import store from "./redux/store.js";
 import "./index.css";
 
+// console.log("Initial state: ", store.getState());
+
 const Board = () => {
-  //storing squares value in state arr
-  const initialSquares = [null, null, null, null, null, null, null, null, null];
+  const initialSquares = Array(9).fill(null);
   const [squares, setSquares] = useState(initialSquares);
+  const [xIsNext, setxIsNext] = useState(true);
   const handleClickEvent = (i) => {
     const newSquares = [...squares];
-    newSquares[i] = "x";
+    newSquares[i] = xIsNext ? "x" : "o";
     setSquares(newSquares);
+    setxIsNext(!xIsNext);
   };
   const renderSquare = (i) => {
     return (
       <Square value={squares[i]} onClickEvent={() => handleClickEvent(i)} />
     );
   };
+
+  const status = `Next player: ${xIsNext ? "X" : "O"}`;
+
   return (
     <div
       style={{
@@ -24,7 +31,9 @@ const Board = () => {
         padding: 20,
       }}
     >
-      Board
+      <div className="status">
+        <span className="flex-item">{status}</span>
+      </div>
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}
@@ -55,7 +64,7 @@ const Square = (props) => {
 const Game = () => {
   return (
     <div className="game">
-      Game
+      <span class="flex-item">Tic-Tac-Toe</span>
       <Board />
     </div>
   );
