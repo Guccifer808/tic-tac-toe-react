@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
 const Board = () => {
+  //storing squares value in state arr
+  const initialSquares = [null, null, null, null, null, null, null, null, null];
+  const [squares, setSquares] = useState(initialSquares);
+
   const renderSquare = (i) => {
-    return <Square value={i} />;
+    return <Square value={squares[i]} />;
   };
   return (
     <div
@@ -35,7 +39,11 @@ const Board = () => {
 };
 
 const Square = (props) => {
-  return <div className="square">{props.value}</div>;
+  return (
+    <button className="square" onClick={() => {}}>
+      {props.value}
+    </button>
+  );
 };
 
 const Game = () => {

@@ -26,3 +26,7 @@ body {
   width: 20vh;
   height: 20vh;
 }
+.square:focus {
+  outline: none;
+  background-color:#222;
+}
