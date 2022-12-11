@@ -6,9 +6,13 @@ const Board = () => {
   //storing squares value in state arr
   const initialSquares = [null, null, null, null, null, null, null, null, null];
   const [squares, setSquares] = useState(initialSquares);
-
+  const handleClickEvent = (i) => {
+    alert(`${i} clicked`);
+  };
   const renderSquare = (i) => {
-    return <Square value={squares[i]} />;
+    return (
+      <Square value={squares[i]} onClickEvent={() => handleClickEvent(i)} />
+    );
   };
   return (
     <div
@@ -40,7 +44,7 @@ const Board = () => {
 
 const Square = (props) => {
   return (
-    <button className="square" onClick={() => {}}>
+    <button className="square" onClick={props.onClickEvent}>
       {props.value}
     </button>
   );
