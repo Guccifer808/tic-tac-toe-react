@@ -11,6 +11,13 @@ const Board = () => {
   const [xIsNext, setxIsNext] = useState(true);
   const handleClickEvent = (i) => {
     const newSquares = [...squares];
+
+    const winnerDeclared = Boolean(calculatedWinner(newSquares));
+    const squareFilled = Boolean(newSquares[i]);
+    if (winnerDeclared || squareFilled) {
+      return;
+    }
+
     newSquares[i] = xIsNext ? "X" : "O";
     setSquares(newSquares);
     setxIsNext(!xIsNext);
